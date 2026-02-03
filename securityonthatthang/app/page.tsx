@@ -54,8 +54,8 @@ export default function Home() {
             <Input placeholder="Dork Street 35" className="w-[20rem] bg-black/75"></Input>
           </Box>
 
-          <div className="flex justify-center">
-            <Button className="bg-red-700 border border-white">Registrer</Button>
+          <div className="flex justify-center mt-10">
+            <Button className="bg-red-700 border border-white">Registrer deg</Button>
           </div>
           
         </form>
