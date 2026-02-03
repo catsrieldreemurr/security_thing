@@ -16,13 +16,12 @@ export async function POST(req: Request) {
         
         await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2));
 
-        return NextResponse.json({ SuccessStatus: 'Successfully wrote data' }, { status: 200 });
+        return NextResponse.json({SuccessStatus: 'Successfully wrote data'}, {status: 200});
 
     } catch (err: any) {
         console.error("Error writing to file:", err.message);
         return NextResponse.json(
-            { SuccessStatus: `Something went wrong. Error: ${err.message}` },
-            { status: 500 }
+            {SuccessStatus: `Something went wrong. Error: ${err.message}`}, {status: 500}
         );
     }
 }
