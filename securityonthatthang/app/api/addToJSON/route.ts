@@ -9,14 +9,16 @@ export async function POST(req: Request) {
         const fileContent = await fs.readFile(filePath, 'utf8');
         const jsonData = JSON.parse(fileContent);
 
-        jsonData.users.push({
-            name: body.name,
-            email: body.email
-        });
-        
-        await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2));
+        console.log(jsonData.users.indexOf(body.name))
 
-        return NextResponse.json({SuccessStatus: 'Successfully wrote data'}, {status: 200});
+        jsonData.users.push({
+        name: body.name,
+        email: body.email,
+        address: body.address
+        });
+
+        await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2));
+        return NextResponse.json({SuccessStatus: 'Successfully wrote data'}, {status: 201});
 
     } catch (err: any) {
         console.error("Error writing to file:", err.message);

@@ -1,11 +1,12 @@
 "use client"
 import Box from "@/components/formbox";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Navbar from "@/components/ui/topbar";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   async function WriteWord() {
@@ -13,14 +14,24 @@ export default function Home() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                name: 'nameson',
-                email: 'email@email.email' })
+                name: name,
+                email: email,
+                address: adress
+              })
         });
 
+        if(res.status === 400){
+          console.log("hi");
+        }
         console.log(res);
     }
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [adress, setAdress] = useState("");
+
   return (
-    <div className="bg-[url(/ironlungbg2.png)] h-screen bg-cover">
+    <div className="bg-[url(/ironlungbg2.png)] bg-cover bg-stretch">
       <Navbar></Navbar>
 
       <div className="flex justify-center mt-20 p-5">
@@ -41,21 +52,48 @@ export default function Home() {
         }}>
           <Box>
             <Label className="text-lg font-bold">Navn</Label>
-            <Input placeholder="Mark Edward Fischbach" className="w-[20rem] bg-black/75"></Input>
+            <Input placeholder="Mark Edward Fischbach" className="w-[20rem] bg-black/75" onChange={(e) => {
+              setName(e.target.value)
+            }}></Input>
           </Box>
 
           <Box>
             <Label className="text-lg font-bold">Emailaddresse</Label>
-            <Input placeholder="markiplier@gmail.com" className="w-[20rem] bg-black/75"></Input>
+            <Input placeholder="markiplier@gmail.com" className="w-[20rem] bg-black/75" onChange={(e) => {
+              setEmail(e.target.value)
+            }}></Input>
           </Box>
 
           <Box>
             <Label className="text-lg font-bold">Addresse / Bosted</Label>
-            <Input placeholder="Dork Street 35" className="w-[20rem] bg-black/75"></Input>
+            <Input placeholder="Dork Street 35" className="w-[20rem] bg-black/75" onChange={(e) => {
+              setAdress(e.target.value)
+            }}></Input>
           </Box>
 
-          <div className="flex justify-center mt-10">
-            <Button className="bg-red-700 border border-white">Registrer deg</Button>
+          <div className="flex justify-center mt-10 gap-10 mb-20">
+            <Button className="bg-red-700 border border-white" onClick={() => {
+              WriteWord();
+            }}>Registrer deg</Button>
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="bg-red-700 border border-white">Hvordan bruker vi dataen din?</Button>
+              </DialogTrigger>
+
+              <DialogContent>
+                <DialogHeader><DialogTitle className="text-center">Hvordan bruker vi dataen din?</DialogTitle></DialogHeader>
+                  
+                  <DialogDescription className="text-center">
+                    Det er viktig for oss at du vet hvordan vi bruker dataen din.
+                  </DialogDescription>
+
+                  <DialogDescription className="text-center">
+                    Vi samler inn Navn, Email-adresse og Adresse.
+                  </DialogDescription>
+              </DialogContent>
+            </Dialog>
+            
           </div>
           
         </form>
