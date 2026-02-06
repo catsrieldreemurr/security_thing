@@ -15,7 +15,7 @@ export async function POST(req: Request) {
         jsonData.users.splice(id, 1)
 
         await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2));
-        return NextResponse.json({SuccessStatus: 'Successfully deleted data'}, {status: 201});
+        return NextResponse.json({SuccessStatus: 'Successfully deleted data'}, {status: 200});
 
     } catch (err: any) {
         console.error("Error writing to file:", err.message);

@@ -41,6 +41,9 @@ export default function Page(){
 
         if(res.status === 400){
             console.log("hi");
+        } 
+        if(res.status === 200){
+            location.reload();
         }
         console.log(res);
     }
@@ -82,7 +85,7 @@ export default function Page(){
             <div className="flex justify-center flex-col items-center">
                 <div className="mt-10 bg-black/75 sm:w-1/3 p-5 rounded-sm">
                     <h1 className="text-white text-3xl font-bold text-center">Registrerte Blodgivere:</h1>
-            </div>
+                </div>
                 {   
                     data ? <div>
                     {data.map((index, key) => {
@@ -95,7 +98,6 @@ export default function Page(){
                                 <Button onClick={() => {
                                     RemoveData(key)
                                 }} className="bg-gray-800 mt-5">Delete</Button>
-                                <h1 className="text-white">{key}</h1>
                             </div>
                         )
                     })}

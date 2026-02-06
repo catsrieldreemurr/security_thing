@@ -4,26 +4,6 @@
       "name": "Alex Rivers",
       "email": "arivers88@testmail.com",
       "address": "422 Maple Avenue, Springfield, IL 62704"
-    },
-    {
-      "name": "Sam Thorne",
-      "email": "sthorne.dev@provider.net",
-      "address": "78 Knight Street, Apt 4B, London, UK"
-    },
-    {
-      "name": "Jordan Lee",
-      "email": "j.lee_test@workspace.org",
-      "address": "9010 Sunset Blvd, Los Angeles, CA 90069"
-    },
-    {
-      "name": "Morgan Vance",
-      "email": "mvance@example-domain.io",
-      "address": "Rue de la Paix 15, Paris, FR"
-    },
-    {
-      "name": "Casey Quinn",
-      "email": "cquinn99@fastmail.com",
-      "address": "PO Box 552, Austin, TX 78701"
     }
   ]
 }
