@@ -31,7 +31,7 @@ export default function Home() {
     const [adress, setAdress] = useState("");
 
   return (
-    <div className="bg-[url(/ironlungbg2.png)] bg-cover bg-stretch">
+    <div className="bg-[url(/ironlungbg2.png)] bg-cover bg-stretch h-fit sm:h-[100vh]">
       <Navbar></Navbar>
 
       <div className="flex justify-center mt-20 p-5">
@@ -75,24 +75,6 @@ export default function Home() {
             <Button className="bg-red-700 border border-white" onClick={() => {
               WriteWord();
             }}>Registrer deg</Button>
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className="bg-red-700 border border-white">Hvordan bruker vi dataen din?</Button>
-              </DialogTrigger>
-
-              <DialogContent>
-                <DialogHeader><DialogTitle className="text-center">Hvordan bruker vi dataen din?</DialogTitle></DialogHeader>
-                  
-                  <DialogDescription className="text-center">
-                    Det er viktig for oss at du vet hvordan vi bruker dataen din.
-                  </DialogDescription>
-
-                  <DialogDescription className="text-center">
-                    Vi samler inn Navn, Email-adresse og Adresse.
-                  </DialogDescription>
-              </DialogContent>
-            </Dialog>
             
           </div>
           
