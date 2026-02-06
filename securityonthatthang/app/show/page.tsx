@@ -80,7 +80,7 @@ export default function Page(){
     const [hasFailed, setHasFailed] = useState(false)
 
     return (
-        <div className="bg-[url(/ironlungbg2.png)] bg-cover bg-stretch h-screen sm:h-[100vh]">
+        <div className="bg-[url(/ironlungbg2.png)] bg-cover bg-scroll min-h-screen h-full">
             <Navbar></Navbar>
             <div className="flex justify-center flex-col items-center">
                 <div className="mt-10 bg-black/75 sm:w-1/3 p-5 rounded-sm">
@@ -91,6 +91,7 @@ export default function Page(){
                     {data.map((index, key) => {
                         return (
                             <div key={key} className="text-white text-center bg-black/75 rounded-xl p-5 m-2">
+                                <h1 className="text-2xl font-bold">#{key}</h1>
                                 <p>Name: {index.name}</p>
                                 <p>Email: {tagResult(index.email)}</p>
                                 <p>Address: {tagResult(index.address)}</p>
